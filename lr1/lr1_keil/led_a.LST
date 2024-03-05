@@ -1,0 +1,24 @@
+A51 MACRO ASSEMBLER  LED_A                                                                03/03/2024 17:20:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN led_a.OBJ
+ASSEMBLER INVOKED BY: C:\programs\Keil_v5\C51\BIN\A51.EXE led_a.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+*** WARNING #A41 IN 0 (led_a.a51, LINE 0): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  LED_A                                                                03/03/2024 17:20:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
