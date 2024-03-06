@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   LED_C                                                             03/05/2024 20:03:00 PAGE 1   
+C51 COMPILER V9.53.0.0   LED_C                                                             03/06/2024 07:06:58 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE LED_C
@@ -10,37 +10,36 @@ line level    source
    1          #include <C8051F120.h>
    2          
    3          sbit LED = P1^6; 
-   4          sbit SW = P3^7;  
+   4          unsigned long i=0; //delay counter
    5          
-   6          unsigned long i=0; //delay counter
-   7          void Reset_Sources_Init()//disabling the watchdog timer
-   8          {
-   9   1          WDTCN     = 0xDE;
-  10   1          WDTCN     = 0xAD;
-  11   1      }
-  12          void Port_IO_Init() //configuring I/O ports
-  13          {
-  14   1          SFRPAGE   = CONFIG_PAGE; //go to the configuration page
-  15   1          P1MDOUT   = 0x40; 
-  16   1          XBR2      = 0x40;
-  17   1      }
-  18          void Init_Device(void) // device initialization
-  19          {
-  20   1          Reset_Sources_Init();
-  21   1          Port_IO_Init();
-  22   1      }
-  23          void main(void) {
-  24   1        Init_Device();
-  25   1        LED = 0; //Clearing the state of the diode
-  26   1        while(1){// This loop creates a delay.
-  27   2          i++; // Incrementing the delay variable
-  28   2          if (i == 195075) { // If the variable is 195075, then clear
-  29   3            i = 0; // Reset it to zero
-  30   3            LED = ~LED;// Invert the state of the diode
-  31   3            }
-  32   2          }
-  33   1        }
-  34          
+   6          void Reset_Sources_Init()//disabling the watchdog timer
+   7          {
+   8   1          WDTCN     = 0xDE;
+   9   1          WDTCN     = 0xAD;
+  10   1      }
+  11          void Port_IO_Init() //configuring I/O ports
+  12          {
+  13   1          SFRPAGE   = CONFIG_PAGE; //go to the configuration page
+  14   1          P1MDOUT   = 0x40; 
+  15   1          XBR2      = 0x40;
+  16   1      }
+  17          void Init_Device(void) // device initialization
+  18          {
+  19   1          Reset_Sources_Init();
+  20   1          Port_IO_Init();
+  21   1      }
+  22          void main(void) {
+  23   1        Init_Device();
+  24   1        LED = 0; //Clearing the state of the diode
+  25   1        while(1){// This loop creates a delay.
+  26   2          i++; // Incrementing the delay variable
+  27   2          if (i == 195075) { // If the variable is 195075, then clear
+  28   3            i = 0; // Reset it to zero
+  29   3            LED = ~LED;// Invert the state of the diode
+  30   3            }
+  31   2          }
+  32   1        }
+  33          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

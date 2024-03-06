@@ -1,9 +1,8 @@
 #include <C8051F120.h>
 
 sbit LED = P1^6; 
-sbit SW = P3^7;  
-
 unsigned long i=0; //delay counter
+
 void Reset_Sources_Init()//disabling the watchdog timer
 {
     WDTCN     = 0xDE;

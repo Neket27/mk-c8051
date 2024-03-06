@@ -1,0 +1,195 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/06/2024  10:16:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\PROGRAMS\KEIL_V5\C51\BIN\BL51.EXE STARTUP.obj, led_c.obj TO led RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  led_c.obj (LED_C)
+  C:\PROGRAMS\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  led (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?LED_C
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     001CH     UNIT         ?PR?TIMER_ISR?LED_C
+            CODE    08A8H     000CH     UNIT         ?PR?INIT_DEVICE?LED_C
+            CODE    08B4H     000AH     UNIT         ?PR?PORT_IO_INIT?LED_C
+            CODE    08BEH     0007H     UNIT         ?PR?RESET_SOURCES_INIT?LED_C
+            CODE    08C5H     0007H     UNIT         ?PR?TIMER_INIT?LED_C
+            CODE    08CCH     0007H     UNIT         ?PR?MAIN?LED_C
+            CODE    08D3H     0005H     UNIT         ?C_INITSEG
+            CODE    08D8H     0004H     UNIT         ?PR?INTERRUPTS_INIT?LED_C
+
+
+
+OVERLAY MAP OF MODULE:   led (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED_C
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED_C
+  +--> ?PR?INIT_DEVICE?LED_C
+
+?PR?INIT_DEVICE?LED_C
+  +--> ?PR?RESET_SOURCES_INIT?LED_C
+  +--> ?PR?PORT_IO_INIT?LED_C
+  +--> ?PR?INTERRUPTS_INIT?LED_C
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/06/2024  10:16:11  PAGE 2
+
+
+  +--> ?PR?TIMER_INIT?LED_C
+
+
+
+SYMBOL TABLE OF MODULE:  led (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        LED_C
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00FFH         PUBLIC        WDTCN
+  D:0084H         PUBLIC        SFRPAGE
+  D:00A5H         PUBLIC        P1MDOUT
+  D:00A8H         PUBLIC        IE
+  C:08B4H         PUBLIC        Port_IO_Init
+  D:00E3H         PUBLIC        XBR2
+  C:08CCH         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  C:08D8H         PUBLIC        Interrupts_Init
+  C:08BEH         PUBLIC        Reset_Sources_Init
+  D:0008H         PUBLIC        cnt
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/06/2024  10:16:11  PAGE 3
+
+
+  C:08A8H         PUBLIC        Init_Device
+  B:0088H.5       PUBLIC        TF0
+  C:088CH         PUBLIC        Timer_ISR
+  B:0090H.6       PUBLIC        LED
+  B:0088H.4       PUBLIC        TR0
+  C:08C5H         PUBLIC        Timer_Init
+  -------         PROC          RESET_SOURCES_INIT
+  C:08BEH         LINE#         6
+  C:08BEH         LINE#         7
+  C:08BEH         LINE#         8
+  C:08C1H         LINE#         9
+  C:08C4H         LINE#         10
+  -------         ENDPROC       RESET_SOURCES_INIT
+  -------         PROC          TIMER_INIT
+  C:08C5H         LINE#         13
+  C:08C5H         LINE#         14
+  C:08C5H         LINE#         15
+  C:08C8H         LINE#         16
+  C:08CBH         LINE#         17
+  -------         ENDPROC       TIMER_INIT
+  -------         PROC          PORT_IO_INIT
+  C:08B4H         LINE#         21
+  C:08B4H         LINE#         22
+  C:08B4H         LINE#         23
+  C:08B7H         LINE#         24
+  C:08BAH         LINE#         25
+  C:08BDH         LINE#         26
+  -------         ENDPROC       PORT_IO_INIT
+  -------         PROC          INTERRUPTS_INIT
+  C:08D8H         LINE#         28
+  C:08D8H         LINE#         29
+  C:08D8H         LINE#         30
+  C:08DBH         LINE#         31
+  -------         ENDPROC       INTERRUPTS_INIT
+  -------         PROC          INIT_DEVICE
+  C:08A8H         LINE#         33
+  C:08A8H         LINE#         34
+  C:08A8H         LINE#         35
+  C:08ABH         LINE#         36
+  C:08AEH         LINE#         37
+  C:08B1H         LINE#         38
+  -------         ENDPROC       INIT_DEVICE
+  -------         PROC          TIMER_ISR
+  C:088CH         LINE#         41
+  C:088EH         LINE#         43
+  C:0890H         LINE#         44
+  C:0898H         LINE#         45
+  C:089EH         LINE#         46
+  C:089EH         LINE#         47
+  C:08A3H         LINE#         48
+  C:08A5H         LINE#         49
+  C:08A5H         LINE#         50
+  -------         ENDPROC       TIMER_ISR
+  -------         PROC          MAIN
+  C:08CCH         LINE#         55
+  C:08CCH         LINE#         56
+  C:08CCH         LINE#         57
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/06/2024  10:16:11  PAGE 4
+
+
+  C:08CFH         LINE#         58
+  C:08D1H         LINE#         60
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_C
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0061H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=226
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
